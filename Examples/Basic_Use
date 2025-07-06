@@ -1,0 +1,23 @@
+#include <Mecanum_Base.h>  // Include your library
+
+// Create a MecanumBase object with PWM and DIR pins for each motor
+MecanumBase base(3, 4, 5, 6, 9, 8, 10, 11);
+
+void setup() {
+  // Set the physical dimensions of your robot (length and width in cm)
+  base.setDimensions(30.0, 25.0);
+
+  // Set the max motor speed (0–255)
+  base.setSpeed(150);
+
+  // Set movement direction and rotation rate
+  // angle_deg = 45 moves diagonally, rotation_rate = 0.25 spins CCW
+  base.driveAngle(45, 0.25);
+}
+
+void loop() {
+  // Continuously update motors to maintain movement
+  base.update();
+
+  // You could also change direction here based on sensors or input
+}
